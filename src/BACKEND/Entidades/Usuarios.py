@@ -1,10 +1,15 @@
+from dataclasses import dataclass
 
+@dataclass
 class Usuarios:
-    def __init__(self, id, nombre, ocupacion, meta_mensual, fecha_registro, email, password):
+    id_usuarios: int
+    nombre: str
+    ocupacion: str
+    meta_mensual: float
+    fecha_registro: str
+    email: str
+    password: str
         
-        self.id: id = int
-        self.nombre: nombre = str
-        self.ocupacion: ocupacion = str 
-        self.meta_mensual: meta_mensual = float
+
         
     
