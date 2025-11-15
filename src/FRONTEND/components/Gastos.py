@@ -1,6 +1,6 @@
 import streamlit as st
-from components.charts import crear_grafico_distribucion
-from utils.calculations import calcular_total_ingresos, calcular_total_gastos
+from components.Charts import crear_grafico_distribucion
+from utils.Calculations import calcular_total_ingresos, calcular_total_gastos
 
 def seccion_gastos():
     """Sección de planificación de gastos"""

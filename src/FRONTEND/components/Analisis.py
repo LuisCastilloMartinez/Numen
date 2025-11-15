@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from utils.calculations import (
+from utils.Calculations import (
     calcular_saldo_total,
     calcular_total_ingresos,
     calcular_total_gastos,
