@@ -1,11 +1,11 @@
 import streamlit as st
 from datetime import date
-from components.Metrics import mostrar_metricas_principales, mostrar_progreso_meta
-from components.Charts import crear_grafico_distribucion, crear_grafico_ingresos
-from components.Ingresos import seccion_ingresos
-from components.Gastos import seccion_gastos
-from components.Metas import seccion_metas
-from components.Analisis import seccion_analisis
+from components.metrics import mostrar_metricas_principales, mostrar_progreso_meta
+from components.charts import crear_grafico_distribucion, crear_grafico_ingresos
+from components.ingresos import seccion_ingresos
+from components.gastos import seccion_gastos
+from components.metas import seccion_metas
+from components.analisis import seccion_analisis
 
 def dashboard():
     """Dashboard principal de la aplicación"""
