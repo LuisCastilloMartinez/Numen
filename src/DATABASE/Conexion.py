@@ -1,28 +1,23 @@
 import mysql.connector
 
-conexion = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="Papacaliente12#",
-    database="NUMEN"
-)
+class Conexion:
 
-cursor = conexion.cursor()
+    @staticmethod
+    def obtener_conexion():
+        try:
+            conexion = mysql.connector.connect(
+                host="localhost",
+                user="root",
+                password="Papacaliente12#",
+                database="NUMEN"
+            )
 
-cursor.execute("SELECT DATABASE();")
-print("Base usada desde Python:", cursor.fetchone())
+            print("Conexión exitosa")
+            return conexion
+        
+        except mysql.connector.Error as error:
+            print(f"Error al conectarse a la base de datos: {error}")
+            return None
 
-cursor.execute("SHOW TABLES;")
-print("Tablas en esta base desde Python:")
-for t in cursor.fetchall():
-    print(t)
-
-cursor.execute("SELECT COUNT(*) FROM usuarios2;")
-print("Registros en usuarios2:", cursor.fetchone())
-
-cursor.execute("SELECT * FROM usuarios2;")
-print("\nContenido de usuarios2:")
-for fila in cursor.fetchall():
-    print(fila)
-
-conexion.close()
+if __name__ == "__main__":
+    Conexion.obtener_conexion()
