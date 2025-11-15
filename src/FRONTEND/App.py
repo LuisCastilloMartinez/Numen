@@ -45,10 +45,10 @@ def mostrar_menu_navegacion():
         st.markdown("## 🧭 Navegación")
         st.markdown("---")
         
-        # Botones de navegación
+        # Botones de navegación (SIN Tributarios)
         pantallas = {
             '🏠 Dashboard': 'Dashboard',
-            '👷 Nóminas': 'Nominas',
+            '👷 Nóminas y Tributarios': 'Nominas',
             '🏠 Servicios Básicos': 'Servicios'
         }
         
@@ -94,7 +94,7 @@ def main():
             # Header de la pantalla
             col1, col2 = st.columns([3, 1])
             with col1:
-                st.markdown("# 👷 Gestión de Nóminas")
+                st.markdown("# 👷 Gestión de Nóminas y Pagos Tributarios")
                 st.markdown(f"**Usuario:** {st.session_state.user_profile.get('nombre', 'Usuario')}")
             with col2:
                 st.metric("Ocupación", st.session_state.user_profile.get('ocupacion', 'N/A'))
@@ -113,18 +113,6 @@ def main():
             
             st.markdown("---")
             seccion_servicios()
-            
-        elif st.session_state.pantalla_actual == 'Tributarios':
-            # Header de la pantalla
-            col1, col2 = st.columns([3, 1])
-            with col1:
-                st.markdown("# 📋 Gestión Tributaria")
-                st.markdown(f"**Usuario:** {st.session_state.user_profile.get('nombre', 'Usuario')}")
-            with col2:
-                st.metric("Ocupación", st.session_state.user_profile.get('ocupacion', 'N/A'))
-            
-            st.markdown("---")
-            seccion_tributarios()
 
 if __name__ == "__main__":
     main()
