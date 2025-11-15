@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+import bcrypt
 
 @dataclass
 class Usuarios:
@@ -9,7 +10,5 @@ class Usuarios:
     fecha_registro: str
     email: str
     password: str
-        
-
-        
+    
     
