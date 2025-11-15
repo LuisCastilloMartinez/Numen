@@ -1,5 +1,5 @@
 import streamlit as st
-from utils.calculations import (
+from utils.Calculations import (
     calcular_saldo_total, 
     calcular_total_ingresos, 
     calcular_total_gastos,

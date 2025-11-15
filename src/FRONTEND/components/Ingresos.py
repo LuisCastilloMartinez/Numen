@@ -1,6 +1,6 @@
 import streamlit as st
 from datetime import date
-from components.charts import crear_grafico_ingresos
+from components.Charts import crear_grafico_ingresos
 
 def seccion_ingresos():
     """Sección de gestión de ingresos"""

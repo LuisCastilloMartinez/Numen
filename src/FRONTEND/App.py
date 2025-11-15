@@ -1,7 +1,7 @@
 import streamlit as st
-from utils.styles import apply_custom_styles
-from components.auth import login_screen
-from components.dashboard import dashboard
+from utils.Styles import apply_custom_styles
+from components.Auth import login_screen
+from components.Dashboard import dashboard
 
 # Configuración de la página
 st.set_page_config(
