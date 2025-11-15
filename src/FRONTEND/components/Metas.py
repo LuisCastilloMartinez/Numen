@@ -50,9 +50,15 @@ def seccion_metas():
                                              key=f"agregar_meta_{idx}")
                 with col_b:
                     if st.button(f"💰 Agregar", key=f"btn_agregar_{idx}"):
-                        st.session_state.metas_inversion[idx]['actual'] += agregar
-                        st.success(f"${agregar:,.2f} agregados a {meta['nombre']}")
-                        st.rerun()
+                        actual = st.session_state.metas_inversion[idx]['actual']
+                        objetivo = meta['objetivo']
+                        restante = objetivo - actual
+                        if agregar > restante:
+                            st.warning(f"No puedes agregar más de lo que falta. Solo faltan ${restante:,.2f} para completar la meta.")
+                        else:
+                            st.session_state.metas_inversion[idx]['actual'] += agregar
+                            st.success(f"${agregar:,.2f} agregados a {meta['nombre']}")
+                            st.rerun()
                 with col_c:
                     if st.button("🗑️", key=f"del_meta_{idx}"):
                         st.session_state.metas_inversion.pop(idx)
