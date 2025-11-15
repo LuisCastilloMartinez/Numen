@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-
 from utils.Calculations import (
     calcular_saldo_total,
     calcular_total_ingresos,
@@ -17,7 +16,8 @@ def seccion_analisis():
     saldo = calcular_saldo_total()
     total_ingresos = calcular_total_ingresos()
     total_gastos = calcular_total_gastos()
-    meta = st.session_state.user_profile.get('meta_mensual', 0)
+    meta_raw = st.session_state.user_profile.get('meta_mensual', 0)
+    meta = meta_raw['valor'] if isinstance(meta_raw, dict) else meta_raw
     progreso_meta = calcular_progreso_meta()
     
     with col1:
@@ -41,10 +41,10 @@ def seccion_analisis():
     with col2:
         st.markdown("#### 🎯 Estado de Metas")
         if len(st.session_state.metas_inversion) > 0:
-            for meta in st.session_state.metas_inversion:
-                progreso = (meta['actual'] / meta['objetivo'] * 100) if meta['objetivo'] > 0 else 0
+            for meta_inv in st.session_state.metas_inversion:
+                progreso = (meta_inv['actual'] / meta_inv['objetivo'] * 100) if meta_inv['objetivo'] > 0 else 0
                 estado = "✅ Completada" if progreso >= 100 else "🔄 En progreso"
-                st.write(f"**{meta['nombre']}**: {estado} ({progreso:.1f}%)")
+                st.write(f"**{meta_inv['nombre']}**: {estado} ({progreso:.1f}%)")
         else:
             st.info("No tienes metas de inversión creadas")
     
